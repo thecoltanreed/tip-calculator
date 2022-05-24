@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tip Calculator</title>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Fira+Sans&family=Outfit:wght@300;400;600&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+        <script  defer src="./app.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="./images/logo.svg" alt="">
+            </div>
+        </header>
+        <section class="container">
+            <div class="inner-container">
+                <div class="left-half">
+                    <p>Bill</p>
+                        <div class="input-total">
+                            <img class="dollar-sign" src="./images/icon-dollar.svg" alt="dollar symbol">
+                            <input id="bill-total" name="bill-total" type="number" placeholder="0">
+                        </div>
+
+    
+                    <div class="buttons">
+                        <p>Select Tip %</p>
+                        <ul class="tip-buttons">
+                            <li><button id="5-percent" type="submit" class="tip-button" value=".05">5%</button></li>
+                            <li><button id="10-percent" class="tip-button" value=".10">10%</button></li>
+                            <li><button id="15-percent" class="tip-button" value=".15">15%</button></li>
+                            <li><button id="25-percent" class="tip-button" value=".25">25%</button></li>
+                            <li><button id="50-percent" class="tip-button" value=".50">50%</button></li>
+                            <li><input id="custom-tip" type="number" placeholder="Custom" class="custom"></li>
+                        </ul>
+                    </div>
+    
+                    <div class="number-of-people">
+                        <div class="number-of-people-error-div">
+                            <p>Number of People</p>
+                            <span class="error-span hide">Can't be zero</span>
+                        </div>
+                        <img class="dollar-sign" src="./images/icon-person.svg" alt="person-icon">
+                        <input id="number-of-people" type="number" required placeholder="0">
+                    </div>  
+                </div>
+                <div class="right-half">
+                    <div class="tip-amount">
+                        <div class="left-side">
+                            <h1>Tip Amount</h1>
+                            <p class="right-section-p">/ person</p>
+                        </div>
+                        <span class="tip-span">$0.00</span>
+                    </div>
+                    <div class="total-per-person">
+                        <div class="right-side">
+                            <h1>Total</h1>
+                            <p class="right-section-p">/ person</p>
+                        </div>
+
+                    </div>
+                    <span class="total-span">$0.00</span>
+                    <div class="reset-button-div">
+                        <button class="reset">RESET</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </body>
+</html>
