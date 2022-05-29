@@ -9,16 +9,19 @@ const resetButton = document.querySelector('.reset')
 const customInput = document.getElementById('custom-tip')
 
 let billTotal = 0
+let billSplitTotal = 0
+let tipAmount = 0
 let totalPerPerson = 0
 
 // Event Listeners //--------------------------------------------------------------------------------------------------------
 tipButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (numberOfPeople.value > 0){
-            billTotal = button.value * billInput.value
-            totalPerPerson = billTotal / numberOfPeople.value
+            billTotal = parseFloat(billInput.value)
+            tipAmount = billTotal * parseFloat(button.value)
+            billSplitTotal = (billTotal + tipAmount) / numberOfPeople.value
 
-        tipAmount()
+            tipAmountDisplay()
         } 
         // Create Error Outline and message
         if (numberOfPeople.value <= 0) {
@@ -39,9 +42,9 @@ resetButton.addEventListener('click', reset)
 customInput.addEventListener('keypress', customButton)
 
 // Functions //---------------------------------------------------------------------------------------------------------------
-function tipAmount() {
-    tipTotalDisplay.textContent = '$' + Math.min(billTotal * 100 / 100).toFixed(2)
-    totalPerPersonDisplay.textContent = '$' + Math.min(totalPerPerson * 100 / 100).toFixed(2)
+function tipAmountDisplay() { 
+    tipTotalDisplay.textContent = '$' + Math.min(tipAmount / numberOfPeople.value * 100 / 100).toFixed(2)
+    totalPerPersonDisplay.textContent = '$' + Math.min(billSplitTotal * 100 / 100).toFixed(2)
 }
 
 function reset() {
@@ -56,7 +59,7 @@ function customButton(e) {
     if (e.key === 'Enter') {
         billTotal = customInput.value * billInput.value / 100
         totalPerPerson = billTotal / numberOfPeople.value
-        tipTotalDisplay.textContent = '$' + Math.min(billTotal * 100 / 100).toFixed(2)
+        tipTotalDisplay.textContent = '$' + Math.min(tipAmount / numberOfPeople.value * 100 / 100).toFixed(2)
         totalPerPersonDisplay.textContent = '$' + Math.min(totalPerPerson * 100 / 100).toFixed(2)
     }
 }
